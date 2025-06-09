@@ -39,6 +39,10 @@
         transform: translateX(0%);
     }
 }
+main{
+    overflow-x: auto;
+    padding: 1rem;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -358,6 +362,8 @@ footer .social-links a:hover {
     margin: 10px 0;
 }
 .btn-game {
+    all: unset;
+    cursor: pointer;
     background-color: var(--rojo);
     color: var(--blanco);
     padding: 10px 30px;
@@ -368,7 +374,10 @@ footer .social-links a:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-decoration: none;
 }
-
+.btn-game:disabled {
+    opacity: 0.5;
+    background-color: var(--rojo);
+  }
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
