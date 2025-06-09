@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
 const  formulario = document.getElementById('form-registro');
 formulario.addEventListener('submit', function(event) {
     event.preventDefault();
-    let errores = [];
     if(validarFormulario()){
         alert("Formulario enviado correctamente");
         formulario.reset();
