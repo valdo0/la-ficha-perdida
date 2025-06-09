@@ -14,6 +14,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -47,7 +48,7 @@
                     <span>$59.990</span>
                     <span class="discount">(-20%)</span>
                 </p>
-                <a href="#" class="btn-game">Ver más</a>
+                <button class="btn-game" onclick="agregarAlCarrito('Arkham Horror 3ra Edición',59990)">Agregar al Carrito</button>
             </article>
             <article class="game-item">
                 <img src="img/juegos/clank-legacy.webp" alt="Clank Legacy">
@@ -55,7 +56,7 @@
                 <p class="description">Vive una campaña épica con decisiones permanentes mientras construyes tu propio
                     universo de Clank. ¡Riesgo, estrategia y aventura garantizada!</p>
                 <p class="price">$102.990</p>
-                <a href="#" class="btn-game">Ver más</a>
+                <button class="btn-game" onclick="agregarAlCarrito('Clank Legacy',102990)">Agregar al Carrito</button>
             </article>
             <article class="game-item">
                 <img src="img/juegos/clan-tesoros-sumergidos.webp" alt="Clank: Tesoros Sumergidos">
@@ -63,7 +64,7 @@
                 <p class="description">Una expansión acuática para Clank que te desafía a saquear tesoros en un mundo
                     sumergido. ¡Ten cuidado con lo que acecha bajo el agua!</p>
                 <p class="price">$29.990</p>
-                <a href="#" class="btn-game">Ver más</a>
+                <button class="btn-game" onclick="agregarAlCarrito('Clank: Tesoros Sumergidos',29990)">Agregar al Carrito</button>
             </article>
             <article class="game-item">
                 <img src="img/juegos/dungeon-legends.jpg" alt="Dungeon Legends">
@@ -71,7 +72,7 @@
                 <p class="description">Forma tu equipo de héroes y explora calabozos llenos de peligros, enemigos y
                     secretos en este emocionante juego de fantasía táctica.</p>
                 <p class="price">$39.990</p>
-                <a href="#" class="btn-game">Ver más</a>
+                <button class="btn-game" onclick="agregarAlCarrito('Dungeon Legends',39990)">Agregar al Carrito</button>
             </article>
             <article class="game-item">
                 <img src="img/juegos/Eldritch-Horror.webp" alt="Eldritch Horror">
@@ -79,7 +80,7 @@
                 <p class="description">Viaja por el mundo enfrentando horrores cósmicos en esta épica cooperativa
                     inspirada en los mitos de Lovecraft. ¿Podrás salvar la humanidad?</p>
                 <p class="price">$49.990</p>
-                <a href="#" class="btn-game">Ver más</a>
+                <button class="btn-game" onclick="agregarAlCarrito('Eldritch Horror',49990)">Agregar al Carrito</button>
             </article>
             <article class="game-item">
                 <img src="img/juegos/descent-leyendas-de-las-tinieblas.webp" alt="Descent Leyendas de las Tinieblas">
@@ -88,7 +89,7 @@
                     intensos y una app
                     que guía cada paso de tu aventura.</p>
                 <p class="price">$99.990</p>
-                <a href="#" class="btn-game">Ver más</a>
+                <button class="btn-game" onclick="agregarAlCarrito('Descent Leyendas de las Tinieblas',99990)">Agregar al Carrito</button>
             </article>
         </section>
     </main>
@@ -110,5 +111,6 @@
 </body>
 <script src="js/header.js"></script>
 <script src="js/sesion.js"></script>
+<script src="js/carrito.js"></script>
 
 </html>
