@@ -9,9 +9,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     cargarUsuarios();
-    cargarMetricas();
 });
+function activateTab(button, tabId) {
+    document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
+    
+    button.classList.add('active');
 
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.add('d-none');
+    });
+
+    const selectedTab = document.getElementById(tabId);
+    if (selectedTab) {
+        selectedTab.classList.remove('d-none');
+    }
+}
 function cargarUsuarios() {
 
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
@@ -37,52 +49,41 @@ function cargarUsuarios() {
         tabla.appendChild(fila);
     });
 }
-
-function cargarMetricas() {
-    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'];
-
-    new Chart(document.getElementById('userChart'), {
-        type: 'bar',
-        data: {
-            labels: meses,
-            datasets: [{
-                label: 'Usuarios',
-                data: [10, 25, 40, 32, 50, 70],
-                backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    new Chart(document.getElementById('salesChart'), {
-        type: 'line',
-        data: {
-            labels: meses,
-            datasets: [{
-                label: 'Ventas ($)',
-                data: [1200, 2000, 1500, 1800, 2400, 3000],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                fill: true,
-                tension: 0.3
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-}
+function editarUsuario(index) {
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const user = usuarios[index];
+  
+    document.getElementById("editIndex").value = index;
+    document.getElementById("editNombre").value = user.nombre || "";
+    document.getElementById("editEmail").value = user.email || "";
+    document.getElementById("editUsuario").value = user.usuario || "";
+    document.getElementById("editTipo").value = user.tipo || "usuario";
+  
+    const modal = new bootstrap.Modal(document.getElementById("modalEditarUsuario"));
+    modal.show();
+  }
+  function guardarCambiosUsuario() {
+    const index = parseInt(document.getElementById("editIndex").value);
+    const nombre = document.getElementById("editNombre").value.trim();
+    const email = document.getElementById("editEmail").value.trim();
+    const usuario = document.getElementById("editUsuario").value.trim();
+    const tipo = document.getElementById("editTipo").value;
+  
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  
+    usuarios[index] = {
+      ...usuarios[index],
+      nombre,
+      email,
+      usuario,
+      tipo
+    };
+  
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  
+    const modal = bootstrap.Modal.getInstance(document.getElementById("modalEditarUsuario"));
+    modal.hide();
+  
+    cargarUsuarios();
+  }
+  
