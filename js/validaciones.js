@@ -1,14 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-const  formulario = document.getElementById('form-registro');
-formulario.addEventListener('submit', function(event) {
-    event.preventDefault();
-    if(validarFormulario()){
-        alert("Formulario enviado correctamente");
-        formulario.reset();
-    }
-})
-});
-
 function validarFormulario() {
     let esValido = true;
     esValido &= validarCampoRequerido('username');
