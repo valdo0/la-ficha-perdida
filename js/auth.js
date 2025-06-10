@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const usuario = document.getElementById("username").value;
             const password = document.getElementById("password").value;
 
-            if (usuario && password) {
+            if (validarFormularioLogin(username,password)) {
                 login(usuario, password);
             } else {
                 Swal.fire({
