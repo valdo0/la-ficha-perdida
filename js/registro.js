@@ -6,10 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (validarFormulario()) {
                 const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
                 const nuevoUsuario = {
-                    nombre: document.getElementById("nombre").value,
                     usuario: document.getElementById("username").value,
-                    password: document.getElementById("password").value,
+                    nombre: document.getElementById("nombre").value,
+                    fecha_nacimiento: document.getElementById("fecha-nacimiento").value,
+                    direccion: document.getElementById("direccion").value,
                     email: document.getElementById("email").value,
+                    password: document.getElementById("password").value,
                     tipo: "usuario"
                 };
 
