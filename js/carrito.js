@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    actualizarCarrito();
+    if (window.location.pathname.endsWith('carrito.html')) {
+        actualizarCarrito();
+    }
 });
 
 function actualizarCarrito() {
@@ -78,8 +80,14 @@ function actualizarCarrito() {
 function agregarAlCarrito(juego, precio) {
     const sesion = JSON.parse(localStorage.getItem('session'));
     if (!sesion || !sesion.usuario) {
-        alert('Por favor, inicia sesión para agregar juegos al carrito.');
-        window.location.href = 'login.html';
+        Swal.fire({
+            icon: 'error',
+            title: 'Acceso Denegado',
+            text: 'Por favor, inicia sesión para agregar juegos al carrito.',
+            confirmButtonText: 'Aceptar'
+        }).then(() => {
+            window.location.href = 'login.html';
+        });
         return;
     }
     if(sesion.tipo !== 'usuario') {
