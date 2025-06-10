@@ -86,4 +86,27 @@ function editarUsuario(index) {
   
     cargarUsuarios();
   }
-  
+  function eliminarUsuario(index) {
+      const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    
+      Swal.fire({
+        title: '¿Estás seguro?',
+        text: "No podrás deshacer esta acción",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          usuarios.splice(index, 1);
+          localStorage.setItem("usuarios", JSON.stringify(usuarios));
+          cargarUsuarios();
+          Swal.fire(
+            'Eliminado!',
+            'El usuario ha sido eliminado.',
+            'success'
+          );
+        }
+      });
+  }
